@@ -8,7 +8,7 @@ const equals = document.querySelector("#equals")
 const decimal = document.querySelector("#point")
 const warn = document.querySelector(".text")
 const del = document.querySelector("#delete")
-
+const inv = document.querySelector("#inverse")
 let stat = false;
 let op1 = ''
 let op = ''
@@ -105,7 +105,7 @@ equals.addEventListener("click",function(){
             result=x/y
             break;
     }
-    if(parseFloat(result)>9999999){
+    if(parseFloat(result)>9999999||parseFloat(result)<9999999){
         result=result.toExponential(5)
     }
     else{
@@ -171,6 +171,31 @@ del.addEventListener("click",function(){
     }})
 
 
+ //functionality to inverse button
+ inv.addEventListener("click",function(){
+    if(stat){
+    if(current.textContent==''||current.textContent=='ON'){
+        return
+    }
+    if(current.textContent.startsWith('-')){
+        current.textContent=current.textContent.slice(1,)
+        if(op==''){
+            op1=op1*(-1)
+        }
+        if(op!=''){
+            op2=op2*(-1)
+        }
+    }
+    else{
+        current.textContent='-'+current.textContent
+        if(op==''){
+            op1=op1*(-1)
+        }
+        if(op!=''){
+            op2=op2*(-1)
+        }
+    }
+ }})
 
 
 

@@ -10,7 +10,7 @@ body{
     display:flex;
     justify-content: center;
     align-items: center;
-    background:linear-gradient(to left,rgb(204, 104, 23),rgb(205, 127, 9));
+    background:linear-gradient(to left,rgb(204, 104, 23),rgb(222, 182, 37));
     padding:5px;
 }
 
@@ -150,7 +150,7 @@ button{
 
 }
 
-#git,
+#inverse,
 #switch{
     background-color: cornflowerblue;
 }
