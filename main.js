@@ -73,10 +73,12 @@ operator.forEach((oper)=>{
         if(op1!=''&&stat&&op==''){
             op=oper.textContent
             old.textContent=current.textContent+oper.textContent
+            current.textContent=''
         }
         else if(op!=''&&op2==''&&stat){
             op=oper.textContent
             old.textContent=old.textContent.slice(0,-1)+op
+            current.textContent=''
         }
         else if(op2!=''&&stat&&op!=''){
             evaluate()
@@ -89,6 +91,7 @@ operator.forEach((oper)=>{
     })
 })
 
+//evaluate the operations
 function evaluate(){
     warn.textContent="RASIO"
     if(op1!=''&&op!=''&&op2!=''&&stat){
@@ -110,7 +113,7 @@ function evaluate(){
             result=x/y
             break;
     }
-    if(parseFloat(result)>9999999||parseFloat(result)<9999999){
+    if(parseFloat(result)>9999999||parseFloat(result)<-9999999){
         result=result.toExponential(2)
     }
     else{
