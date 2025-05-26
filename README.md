@@ -3,6 +3,10 @@
 
 A simple calculator built with HTML, CSS, and JavaScript.
 
+##Live Demo
+
+https://sakmv.github.io/odin-calc/
+
 ## Preview
 
 ![Screenshot](./images/Screenshot%202025-05-26%20023246.png)
