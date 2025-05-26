@@ -74,17 +74,22 @@ operator.forEach((oper)=>{
             op=oper.textContent
             old.textContent=current.textContent+oper.textContent
         }
-        else if(op!=''&&op2==''&&stat&&op!=''){
+        else if(op!=''&&op2==''&&stat){
             op=oper.textContent
             old.textContent=old.textContent.slice(0,-1)+op
         }
-        current.textContent=''
+        else if(op2!=''&&stat&&op!=''){
+            evaluate()
+            op=oper.textContent
+            old.textContent=result+op
+            op2=''
+            current.textContent=''
+        }
+        
     })
 })
 
-
-//functionality to equals button
-equals.addEventListener("click",function(){
+function evaluate(){
     warn.textContent="RASIO"
     if(op1!=''&&op!=''&&op2!=''&&stat){
         old.textContent=old.textContent+op2
@@ -106,17 +111,19 @@ equals.addEventListener("click",function(){
             break;
     }
     if(parseFloat(result)>9999999||parseFloat(result)<9999999){
-        result=result.toExponential(5)
+        result=result.toExponential(2)
     }
     else{
-    result=parseFloat(result).toFixed(3)
+    result=parseFloat(result).toFixed(2)
     }
     current.textContent=result
     op1=result
     op2=''
     op=''
 
-}})
+}}
+//functionality to equals button
+equals.addEventListener("click",evaluate)
 
 
 
